@@ -32,8 +32,8 @@ const checkoutRefNew = async (
     }
 
     try {
-        // Try to forcibly fetch remote
-        await exec(`git fetch --depth=1 ${remoteName}`);
+        // Try to forcibly fetch remote - only the specific ref to avoid fetching all branches
+        await exec(`git fetch --depth=1 ${remoteName} ${ref.ref}`);
     } catch {
         /* Ignore error */
     }
