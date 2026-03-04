@@ -4,7 +4,7 @@ import { GithubRef } from '../typings/Options';
 
 export const switchBranch = async (branch: string) => {
     try {
-        await exec(`git fetch --all --depth=1`);
+        await exec(`git fetch --depth=1`);
     } catch (err) {
         console.warn('Error fetching git repository', err);
     }
