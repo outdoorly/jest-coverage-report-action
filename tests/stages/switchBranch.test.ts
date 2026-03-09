@@ -17,7 +17,7 @@ describe('switchBranch', () => {
     it('should fetch repository & switch to branch', async () => {
         await switchBranch('Test-branch');
 
-        expect(exec).toBeCalledWith('git fetch --all --depth=1');
+        expect(exec).toBeCalledWith('git fetch --depth=1 origin Test-branch');
         expect(exec).toBeCalledWith('git checkout -f Test-branch');
     });
 
@@ -84,7 +84,7 @@ describe('checkoutRef', () => {
             'branch-1'
         );
 
-        expect(exec).toBeCalledWith('git fetch --depth=1 remote-1');
+        expect(exec).toBeCalledWith('git fetch --depth=1 remote-1 hello');
     });
 
     it('should checkout to a new branch', async () => {
